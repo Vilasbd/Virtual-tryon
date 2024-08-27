@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px;
+            border-radius: 30px;
+        }
+        .title {
+            text-align: center;
+        }
+        .menu {
+            text-align: right;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+        .menu a:hover,
+        .menu a:active {
+            text-decoration: none;
+            color: #ffc107; /* Example color for active link */
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: center;
+        }
+        .item {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .item p {
+            margin: 10px 0;
+        }
+        .item:hover {
+            transform: scale(1.05);
+        }
+        .item a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <div class="title">Fashion Website</div>
+        <div class="menu">
+            <a href="first.html">Home</a>
+            <a href="#">Buy</a>
+            <a href="about.html">About</a>
+        </div>
+    </div>
+    <div class="container" id="itemsContainer"></div>
+    <script>
+        // Function to render clothes
+        function renderClothes() {
+            const clothes = [
+            { id: '00000_00', gender: 'female', isTrending: true },
+            { id: '00001_00', gender: 'female', isTrending: false },
+            { id: '00002_00', gender: 'female', isTrending: false },
+            { id: '00003_00', gender: 'male', isTrending: true },
+            { id: '00004_00', gender: 'female', isTrending: false },
+            { id: '00005_00', gender: 'female', isTrending: true },
+            { id: '00006_00', gender: 'female', isTrending: false },
+            { id: '00007_00', gender: 'female', isTrending: false },
+            { id: '00008_00', gender: 'female', isTrending: true },
+            { id: '00009_00', gender: 'male', isTrending: false },
+            { id: '00010_00', gender: 'female', isTrending: false },
+            { id: '00011_00', gender: 'female', isTrending: true },
+            { id: '00012_00', gender: 'female', isTrending: false },
+            { id: '00013_00', gender: 'female', isTrending: true },
+            { id: '00014_00', gender: 'female', isTrending: false },
+            { id: '00015_00', gender: 'female', isTrending: true },
+            { id: '00016_00', gender: 'female', isTrending: false },
+            { id: '00017_00', gender: 'female', isTrending: false },
+            { id: '00018_00', gender: 'female', isTrending: true },
+            { id: '00019_00', gender: 'female', isTrending: false },
+            { id: '00020_00', gender: 'female', isTrending: false },
+            { id: '00021_00', gender: 'female', isTrending: true },
+            { id: '00022_00', gender: 'female', isTrending: false },
+            { id: '00023_00', gender: 'female', isTrending: true },
+            { id: '00024_00', gender: 'female', isTrending: false },
+            { id: '00025_00', gender: 'female', isTrending: true },
+            { id: '00026_00', gender: 'female', isTrending: false },
+            { id: '00027_00', gender: 'female', isTrending: false },
+            { id: '00028_00', gender: 'female', isTrending: true },
+            { id: '00029_00', gender: 'female', isTrending: false },
+            { id: '00030_00', gender: 'female', isTrending: false },
+            { id: '00031_00', gender: 'female', isTrending: true },
+            { id: '00032_00', gender: 'female', isTrending: false },
+            { id: '00033_00', gender: 'female', isTrending: true },
+            { id: '00034_00', gender: 'female', isTrending: false },
+            { id: '00035_00', gender: 'female', isTrending: true },
+            { id: '00036_00', gender: 'female', isTrending: false },
+            { id: '00037_00', gender: 'female', isTrending: false },
+            { id: '00038_00', gender: 'female', isTrending: true },
+            { id: '00039_00', gender: 'male', isTrending: false },
+            { id: '00040_00', gender: 'female', isTrending: false },
+            { id: '00041_00', gender: 'female', isTrending: true },
+            { id: '00042_00', gender: 'female', isTrending: false },
+            { id: '00043_00', gender: 'female', isTrending: true },
+            { id: '00044_00', gender: 'male', isTrending: false },
+            { id: '00045_00', gender: 'male', isTrending: true },
+            { id: '00046_00', gender: 'male', isTrending: false },
+            { id: '00047_00', gender: 'female', isTrending: false },
+            { id: '00048_00', gender: 'female', isTrending: true },
+            { id: '00100_00', gender: 'female', isTrending: false },
+            { id: '00101_00', gender: 'female', isTrending: false },
+            { id: '00103_00', gender: 'female', isTrending: true },
+            { id: '00102_00', gender: 'male', isTrending: true },
+            { id: '00107_00', gender: 'male', isTrending: true },
+            { id: '00104_00', gender: 'female', isTrending: false }
+        ]
+
+            const userGender = localStorage.getItem('userGender');
+            const itemsContainer = document.getElementById('itemsContainer');
+
+            if (userGender) {
+                const filteredClothes = clothes.filter(item => item.gender === userGender);
+                filteredClothes.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'item';
+                    itemDiv.innerHTML = `
+                        <a href="third.html?image=${item.id}">
+                            <img src="images/${item.id}.jpg" alt="Cloth ${item.id}">
+                            <p>Cloth ${item.id.replace('_', ' ')}</p>
+                        </a>
+                    `;
+                    itemsContainer.appendChild(itemDiv);
+                });
+            } else {
+                itemsContainer.innerHTML = '<p>Please select your gender above.</p>';
+            }
+        }
+
+        // Call renderClothes function on page load
+        document.addEventListener('DOMContentLoaded', renderClothes);
+    </script>
+</body>
+</html>

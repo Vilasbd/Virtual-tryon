@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px;
+            border-radius: 30px;
+        }
+        .title {
+            text-align: center;
+        }
+        .menu {
+            text-align: right;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+        .menu a:hover,
+        .menu a:active {
+            text-decoration: none;
+            color: #ffc107; /* Example color for active link */
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: center;
+        }
+        .item {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .item p {
+            margin: 10px 0;
+        }
+        .item:hover {
+            transform: scale(1.05);
+        }
+        .item a {
+            text-decoration: none;
+            color: black;
+        }
+        .recommendation {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        .recommendation h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <div class="title">Fashion Website</div>
+        <div class="menu">
+            <a href="first.html">Home</a>
+            <a href="#">Buy</a>
+            <a href="about.html">About</a>
+        </div>
+    </div>
+    <div class="container" id="clothesContainer"></div>
+    <div class="recommendation" id="recommendationContainer">
+        <h2>Recommended for You</h2>
+        <div class="container" id="recommendationItems"></div>
+    </div>
+    <script>
+        const totalClothes = 50; // Total number of clothes images
+        const container = document.getElementById('clothesContainer');
+        const recommendationContainer = document.getElementById('recommendationItems');
+
+        for (let i = 0; i < totalClothes; i++) {
+            const imageName = String(i).padStart(5, '0') + '_00';
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'item';
+            itemDiv.innerHTML = `
+                <a href="detail.html?image=${imageName}">
+                    <img src="images/${imageName}.jpg" alt="Cloth ${i + 1}">
+                    <p>Cloth ${i + 1}</p>
+                </a>
+            `;
+            container.appendChild(itemDiv);
+        }
+
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        // Select 5 random items as recommendations
+        const recommendedItems = [];
+        while (recommendedItems.length < 5) {
+            const randomIndex = getRandomInt(totalClothes);
+            if (!recommendedItems.includes(randomIndex)) {
+                recommendedItems.push(randomIndex);
+            }
+        }
+
+        recommendedItems.forEach(i => {
+            const imageName = String(i).padStart(5, '0') + '_00';
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'item';
+            itemDiv.innerHTML = `
+                <a href="third.html?image=${imageName}">
+                    <img src="images/${imageName}.jpg" alt="Cloth ${i + 1}">
+                    <p>Cloth ${i + 1}</p>
+                </a>
+            `;
+            recommendationContainer.appendChild(itemDiv);
+        });
+    </script>
+</body>
+</html>

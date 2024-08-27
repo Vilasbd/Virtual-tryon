@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Fashion Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px;
+            border-radius: 30px;
+        }
+        .title {
+            text-align: center;
+        }
+        .menu {
+            text-align: right;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+        .menu a:hover,
+        .menu a:active {
+            text-decoration: none;
+            color: #ffc107; /* Example color for active link */
+        }
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Added to center vertically */
+            width: 55vw;
+            min-height: 65vh; /* Adjusted to minimum height */
+            border-radius: 10px;
+            background-color: rgb(255, 204, 128); /* Light orange */
+            margin: 15vh auto 5vh; /* Adjusted margin */
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        .about-content {
+            max-width: 800px;
+            margin-top: 20px; /* Added margin top */
+            background-color: #fff; /* White background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .about-content h2 {
+            margin-bottom: 20px;
+            color: #333; /* Dark text color */
+        }
+        .about-content p {
+            line-height: 1.6;
+            color: #555; /* Slightly darker text color */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <div class="title">Fashion Website</div>
+        <div class="menu">
+            <a href="first.html">Home</a>
+            <a href="#">Buy</a>
+            <a href="about.html">About</a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="about-content">
+            <h2>About Us</h2>
+            <p>Welcome to our <span style="color: #e91e63;">vibrant</span> fashion website! We aim to provide the latest trends in fashion for both <span style="color: #2196f3;">men</span> and <span style="color: #f44336;">women</span>.</p>
+            <p>Our mission is to make shopping for clothes a <span style="color: #4caf50;">delightful experience</span>, offering a wide range of stylish and high-quality clothing items.</p>
+            <p>Feel free to explore our collections and <span style="color: #ff9800;">discover your perfect style</span>!</p>
+        </div>
+    </div>
+</body>
+</html>
